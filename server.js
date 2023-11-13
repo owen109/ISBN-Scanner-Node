@@ -12,7 +12,8 @@ io.on('connection', (socket) => {
     socket.on('message', (messageData) => {
         console.log("Received data:", messageData);
         // Broadcast message to all clients
-        io.emit('scannerMessage', messageData);
+        console.log(messageData);
+        socket.broadcast.emit('scannerMessage', messageData);
     });
 
     socket.on('disconnect', () => {
